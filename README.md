@@ -40,8 +40,19 @@ curl https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-k
 ## Prepare Python3 virtual environmant
 ```
 python3 -m pip install --upgrade pip
-python3 -m venv venv
-source venv/bin/activate
+python3 -m pip install --upgrade setuptools
+python3 -m pip install --upgrade virtualenv
+```
+
+### Activate virtual env
+```
+python3 -m virtualenv .venv
+source .venv/bin/activate
+```
+
+### Install python3 dependency libraries
+```
+python3 -m pip install -r requirements.txt
 ```
 
 References:

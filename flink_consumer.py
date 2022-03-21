@@ -45,7 +45,9 @@ def main():
         )
     """
 
-    tbl_env.execute_sql(src_ddl)
+    src_ddl_result = tbl_env.execute_sql(src_ddl)
+    # Add explicit wait() to avoid "org.apache.flink.table.api.TableException: Failed to wait job finish"
+    src_ddl_result.wait()
 
     # create and initiate loading of source Table
     tbl = tbl_env.from_path('sales_usd')
@@ -86,7 +88,11 @@ def main():
             'format' = 'json'
         )
     """
-    tbl_env.execute_sql(sink_ddl)
+
+
+    tgt_ddl_result = tbl_env.execute_sql(sink_ddl)
+    # Add explicit wait() to avoid "org.apache.flink.table.api.TableException: Failed to wait job finish"
+    tgt_ddl_result.wait()
 
     # write time windowed aggregations to sink table
     revenue_tbl.execute_insert('sales_euros').wait()
