@@ -31,5 +31,18 @@ docker exec -it broker \
     --bootstrap-server localhost:9092
 ```
 
+## Download Flink-SQL connector for Kafka 
+Refer: connector repository https://repo.maven.apache.org/maven2/org/apache/flink/
+```
+curl https://repo.maven.apache.org/maven2/org/apache/flink/flink-sql-connector-kafka_2.12/1.14.4/flink-sql-connector-kafka_2.12-1.14.4.jar -o flink-sql-connector-kafka_2.12-1.14.4.jar
+```
+
+## Prepare Python3 virtual environmant
+```
+python3 -m pip install --upgrade pip
+python3 -m venv venv
+source venv/bin/activate
+```
+
 References:
 1. https://thecodinginterface.com/blog/kafka-source-sink-with-apache-flink-table-api/
