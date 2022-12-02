@@ -55,5 +55,20 @@ source .venv/bin/activate
 python3 -m pip install -r requirements.txt
 ```
 
+----
+
+Kafka UI:
+1. Provectus Kafka UI (https://github.com/provectus/kafka-ui)
+```
+docker run -p 8080:8080 \
+	-e KAFKA_CLUSTERS_0_NAME=local \
+	-e KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=kafka:9092 \
+    --name kafka_UI \
+	-d provectuslabs/kafka-ui:latest
+```
+2. Desktop App: Conduktor (https://www.conduktor.io)
+
+----
+
 References:
 1. https://thecodinginterface.com/blog/kafka-source-sink-with-apache-flink-table-api/
